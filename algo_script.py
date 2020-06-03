@@ -53,9 +53,37 @@ import re
 from similarity.jarowinkler import JaroWinkler
 from similarity.cosine import Cosine
 
+#clean inital dataframe input
+testingdf = pd.read_csv('data/training.csv')
+testingdf.set_index(['Product'], inplace=True)
+testingdf.dropna(inplace=True)
+testingdf.info()
 
-df = pd.read_csv('skincare.csv')
-df = df.reset_index(drop=True)
-df.drop(['Unnamed: 0'], axis=1, inplace=True)
-df.drop(['Unnamed: 0.1'], axis=1, inplace=True)
-df.head()
+
+def select_category(df, category):
+    return df.loc[df['Category'] == category]
+
+#input text function
+
+def user_input(df, tags):
+    """INPUT: df > resulting dataframe from select category function
+        tags > user enters in a string of words 6 total from a
+        from a dropdown list"""
+    """OUTPUT: dataframe with column of input tags """
+    
+    df.loc[df.UserInput < 1, 'UserInput'] = str(tags)
+    df['UserInput'] = df['UserInput'].astype("string")
+    df['Tags2'] = df['Tags2'].astype("string")
+    
+    return df
+
+def jw(df):
+    jarowinkler = JaroWinkler()
+    df["jarowinkler_sim"] = [jarowinkler.similarity(i,j) for i,j in zip(df["Tags2"],df["UserInput"])]
+    df.sort_values(by=['jarowinkler_sim'], inplace=True, ascending=False)
+    final = df.drop(['Category','ReviewText2', 'Tags2'], axis=1).iloc[:5,:]
+    
+    
+    return final
+
+tags = input("Input your tags: ")
