@@ -86,4 +86,4 @@ def jw(df):
     
     return final
 
-tags = input("Input your tags: ")
+# tags = input("Input your tags: ")
