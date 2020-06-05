@@ -54,10 +54,11 @@ from similarity.jarowinkler import JaroWinkler
 from similarity.cosine import Cosine
 
 #clean inital dataframe input
-testingdf = pd.read_csv('data/training.csv')
-testingdf.set_index(['Product'], inplace=True)
-testingdf.dropna(inplace=True)
-testingdf.info()
+def get_dataframe():
+    testingdf = pd.read_csv('data/training.csv')
+    testingdf.set_index(['Product'], inplace=True)
+    testingdf.dropna(inplace=True)
+    return testingdf
 
 
 def select_category(df, category):
@@ -85,5 +86,3 @@ def jw(df):
     
     
     return final
-
-# tags = input("Input your tags: ")
