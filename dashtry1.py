@@ -62,8 +62,8 @@ app.layout = html.Div(children=[
 
     dash_table.DataTable(
     id='table',
-    columns=[{"name": i, "id": i, "something": i} for i in df.columns],
-    data=df.to_dict('records'),
+    columns=[{"name": i, "id": i} for i in df.columns],
+    data=df.to_dict('rows'),
 )  
 ])
 

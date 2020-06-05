@@ -55,7 +55,7 @@ from similarity.cosine import Cosine
 
 #clean inital dataframe input
 def get_dataframe():
-    testingdf = pd.read_csv('data/training.csv')
+    testingdf = pd.read_csv('data/appuse.csv')
     testingdf.set_index(['Product'], inplace=True)
     testingdf.dropna(inplace=True)
     return testingdf
@@ -82,7 +82,7 @@ def jw(df):
     jarowinkler = JaroWinkler()
     df["jarowinkler_sim"] = [jarowinkler.similarity(i,j) for i,j in zip(df["Tags2"],df["UserInput"])]
     df.sort_values(by=['jarowinkler_sim'], inplace=True, ascending=False)
-    final = df.drop(['Category','ReviewText2', 'Tags2'], axis=1).iloc[:5,:]
+    final = df.drop(['Category', 'Tags2'], axis=1).iloc[:5,:]
     
     
     return final
