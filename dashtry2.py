@@ -29,7 +29,7 @@ app.layout = html.Div(children=[
     html.Label('Select Category'),
     dcc.Dropdown(id='category_drop',
         options=[
-            {'label': 'Mositurizer', 'value': 'More Mositurizer'},
+            {'label': 'Moisturizer', 'value': 'More Moisturizer'},
             {'label': 'Cleansers', 'value': 'More Cleanser'},
             {'label': 'Anti-Aging', 'value': 'More Anti-Aging'},
             {'label': 'Eye Treatments', 'value': 'More Eye Treatments'},
@@ -46,9 +46,9 @@ app.layout = html.Div(children=[
     html.Label('Select your profile'),
     dcc.Dropdown(id='profile_drop',
         options=[
-            {'label': 'Vibrant You', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
+            {'label': 'Vibrant You', 'value': 'happy, vibrant, fresh, thick, daily, clean'},
             {'label': 'Youthful Renew', 'value': 'regenerative, restore, renew, mature, age, help'},
-            {'label': 'Sensitive Healing', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
+            {'label': 'Sensitive Healing', 'value': 'sensitive, care, night, acne, heal, treat'},
             {'label': 'Natural Vibe', 'value': 'natural, treatment, daily, sensitive, gentle, organic'},
             {'label': 'Minimalist Clean', 'value': 'minimal, clean, night, simple, quick, effective'},
             {'label': 'Glam Glow', 'value': 'glow, glam, special, radiant, powerful, bright'},
@@ -79,11 +79,16 @@ def recommend(n_clicks, category, profile):
     print(category_df.shape)
     user_input_df = user_input(category_df, profile)
     print(user_input_df.head())
-    results_df = jw(user_input_df)
+    results_df = jw(user_input_df).round(2)
     print(results_df)
     columns = [{"name": i, "id": i,} for i in (results_df.columns)]
     data = results_df.to_dict('rows')
-    return dash_table.DataTable(data=data, columns=columns)
+    return dash_table.DataTable(style_cell={
+        'height': 'auto',
+        # all three widths are needed
+        'minWidth': '100px', 'width': '100px', 'maxWidth': '100px',
+        'whiteSpace': 'normal'
+    },data=data, columns=columns)
 
 
 if __name__ == '__main__':

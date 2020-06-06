@@ -56,7 +56,7 @@ from similarity.cosine import Cosine
 #clean inital dataframe input
 def get_dataframe():
     testingdf = pd.read_csv('data/appuse.csv')
-    testingdf.set_index(['Product'], inplace=True)
+    testingdf.set_index(['Product'])
     testingdf.dropna(inplace=True)
     return testingdf
 
