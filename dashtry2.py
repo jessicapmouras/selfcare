@@ -36,7 +36,7 @@ app.layout = html.Div(children=[
             {'label': 'Acne Control', 'value': 'More Blemish + Acne Control'},
             {'label': 'Toners', 'value': 'More Toners, Astringents'},
             {'label': 'Nightime', 'value': 'More Night Cream'},
-            {'label': 'Sun Protection', 'value': 'More Sun Protection '}
+            {'label': 'Sun Protection', 'value': 'More Sun Protection'}
         ],
         value=''
     ),
@@ -47,12 +47,13 @@ app.layout = html.Div(children=[
     dcc.Dropdown(id='profile_drop',
         options=[
             {'label': 'Vibrant You', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
-            {'label': 'Youthful Renew', 'value': 'sensitive, cleanser, great, acne, powerful, clean'},
+            {'label': 'Youthful Renew', 'value': 'regenerative, restore, renew, mature, age, help'},
             {'label': 'Sensitive Healing', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
-            {'label': 'Minimalist Clean', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
-            {'label': 'Glam Glow', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
-            {'label': 'Fix-it Fresh', 'value': 'sensitive, cleanser, night, acne, powerful, clean'},
-            {'label': 'Maximum Sunshield', 'value': 'sun, protect, work, a, powerful, clean'}
+            {'label': 'Natural Vibe', 'value': 'natural, treatment, daily, sensitive, gentle, organic'},
+            {'label': 'Minimalist Clean', 'value': 'minimal, clean, night, simple, quick, effective'},
+            {'label': 'Glam Glow', 'value': 'glow, glam, special, radiant, powerful, bright'},
+            {'label': 'Fix-it Fresh', 'value': 'morning, dewy, bright, fresh, trouble, fix'},
+            {'label': 'Maximum Sunshield', 'value': 'sun, freckle, work, apply, feel, defense'}
         ],
         value='',
         multi=False
