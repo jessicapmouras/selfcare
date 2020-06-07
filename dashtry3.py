@@ -22,12 +22,12 @@ df = get_dataframe()
 
 app.layout = html.Div(className='col-md-8 offset-2',children=[
     html.Div(className='jumbotron tropic-goth',
-        children=[html.H1('Sknly'
+        children=[html.H1('SkinFit'
     ),
-    html.H2('put tagline or branding here'),
+    html.H2('fitting skincare to your lifestyle'),
 
     html.Ol([
-        html.Li('skincare for your lifestyle'),
+        html.Li('discover new products'),
         html.Li('research done for you'),
         html.Li('so you can be on the go'),
         
