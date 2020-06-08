@@ -21,15 +21,15 @@ app = dash.Dash(
 df = get_dataframe()
 
 app.layout = html.Div(className='col-md-8 offset-2',children=[
-    html.Div(className='jumbotron tropic-goth',
+    html.Div(className='jumbotron tropic-goth shadow',
         children=[html.H1('SkinFit'
     ),
-    html.H2('fitting skincare to your lifestyle'),
+    html.H2('Fitting Skincare to your Lifestyle'),
 
     html.Ol([
-        html.Li('discover new products'),
-        html.Li('research done for you'),
-        html.Li('so you can be on the go'),
+        html.Li('Discover new products...'),
+        html.Li('With research done for you...'),
+        html.Li('So you can be on the go.'),
         
         ]),
         ]),
@@ -46,7 +46,7 @@ app.layout = html.Div(className='col-md-8 offset-2',children=[
             {'label': 'Eye Treatments', 'value': 'More Eye Treatments'},
             {'label': 'Acne Control', 'value': 'More Blemish + Acne Control'},
             {'label': 'Toners', 'value': 'More Toners, Astringents'},
-            {'label': 'Nightime', 'value': 'More Night Cream'},
+            {'label': 'Night-time', 'value': 'More Night Cream'},
             {'label': 'Sun Protection', 'value': 'More Sun Protection'}
         ],
         value=''
