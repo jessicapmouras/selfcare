@@ -82,7 +82,7 @@ def jw(df):
     jarowinkler = JaroWinkler()
     df["jarowinkler_sim"] = [jarowinkler.similarity(i,j) for i,j in zip(df["Tags2"],df["UserInput"])]
     df.sort_values(by=['jarowinkler_sim'], inplace=True, ascending=False)
-    final = df.drop(['Category', 'Tags2'], axis=1).iloc[:5,:]
+    final = df.drop(['Category', 'Tags2', 'UserInput'], axis=1).iloc[:5,:]
     
     
     return final
